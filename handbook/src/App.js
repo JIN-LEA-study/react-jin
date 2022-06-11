@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar";
 import Cards from "./pages/Cards";
 import New from "./pages/New";
 import Practice from "./pages/Practice";
-// import List from "./pages/List";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
             <Route path='/card' element={<Cards />} />
             <Route path='/new' element={<New />} />
             <Route path='/practice' element={<Practice />} />
-            {/* <Route path='/list' element={<List />} /> */}
           </Routes>
         </Template>
       </div>
