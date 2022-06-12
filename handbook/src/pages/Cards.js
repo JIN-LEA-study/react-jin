@@ -1,13 +1,30 @@
 import React, { useState } from "react";
+
+// recoil
+import { useRecoilValue } from "recoil";
+import { filterItems } from "../recoil/selectors";
+
+// components
 import FlashcardList from "../components/FlashcardList";
+import Flashcard from "../components/Flashcard";
 
 const Cards = () => {
   const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+  const itemsState = useRecoilValue(filterItems);
 
   return (
     <div>
       <h1>CARDS</h1>
-      <FlashcardList flashcards={flashcards} />
+      {!itemsState.length ? (
+        <>
+          <p style={{ textAlign: "center" }}>These cards are samples.</p>
+          <FlashcardList flashcards={flashcards} />
+        </>
+      ) : (
+        itemsState.map(flashcard => (
+          <Flashcard flashcard={flashcard} key={flashcard.id} />
+        ))
+      )}
     </div>
   );
 };
