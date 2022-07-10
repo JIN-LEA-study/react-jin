@@ -42,6 +42,9 @@ const Menu = styled.nav`
   border-radius: 10px;
   border: 1px solid var(--gray);
   justify-content: space-between;
+  @media (max-width: 320px) {
+    display: none;
+  }
 `;
 
 export default Navbar;

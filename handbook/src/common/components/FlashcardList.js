@@ -4,7 +4,7 @@ import Flashcard from "./Flashcard";
 
 const FlashcardList = ({ flashcards }) => {
   return (
-    <Grid>
+    <Grid isFlex flexDirection='column'>
       {flashcards.map(flashcard => {
         return <Flashcard flashcard={flashcard} key={flashcard.id} />; // 요소만 다시 렌더링
       })}

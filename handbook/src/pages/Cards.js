@@ -13,13 +13,13 @@ const Cards = () => {
   const itemsState = useRecoilValue(filterItems);
 
   return (
-    <Grid width='auto'>
+    <Grid isFlex flexDirection='column'>
       <Text margin='1rem 0 1rem 0' type='h1'>
         CARDS
       </Text>
       {!itemsState.length ? (
         <>
-          <p style={{ textAlign: "center" }}>These cards are samples.</p>
+          <Text center>These cards are samples.</Text>
           <FlashcardList flashcards={flashcards} />
         </>
       ) : (

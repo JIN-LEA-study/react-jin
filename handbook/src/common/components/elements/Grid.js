@@ -20,6 +20,8 @@ const Grid = props => {
     cursor,
     wordBreak,
     radius,
+    overflowY,
+    minHeight,
   } = props;
 
   const styles = {
@@ -40,6 +42,8 @@ const Grid = props => {
     cursor,
     wordBreak,
     radius,
+    overflowY,
+    minHeight,
   };
 
   return (
@@ -73,9 +77,11 @@ const GridBox = styled.div`
   ${props => (props.marginTop ? `margin-top: ${props.marginTop};` : "")}
   ${props => (props.padding ? `padding: ${props.padding};` : "")}
   ${props => (props.border ? `border: ${props.border};` : "")}
-  ${props => (props.cursor ? `cursor: ${props.cursor};` : "")}
+  ${props => (props.cursor ? `cursor: pointer;` : "")}
   ${props => (props.wordBreak ? `word-break: ${props.wordBreak};` : "")}
   ${props => (props.radius ? `border-radius: ${props.radius};` : "")}
+  ${props => (props.overflowY ? `overflow-y: ${props.overflowY};` : "")}
+  ${props => (props.minHeight ? `min-height: ${props.minHeight};` : "")}
   // space-beteween
   ${props =>
     props.isFlex
