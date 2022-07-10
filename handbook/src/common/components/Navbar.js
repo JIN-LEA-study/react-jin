@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { Grid } from "./elements";
 
 const Navbar = () => {
   const menus = [
@@ -8,19 +9,23 @@ const Navbar = () => {
     { name: "NEW", path: "/new" },
     { name: "PRACTICE", path: "/practice" },
   ];
+
   return (
     <Menu>
       {menus.map((menu, index) => {
         return (
-          <LinkWrapper>
+          <Grid width='auto' padding='0.5rem'>
             <NavLink
               to={menu.path}
               key={index}
-              style={{ color: "gray", textDecoration: "none" }}
+              className='active'
+              style={({ isActive }) => ({
+                color: isActive ? "var(--orange)" : "var(--gray)",
+              })}
             >
               <span>{menu.name}</span>
             </NavLink>
-          </LinkWrapper>
+          </Grid>
         );
       })}
     </Menu>
@@ -35,16 +40,8 @@ const Menu = styled.nav`
   width: 15rem;
   padding: 0.2rem;
   border-radius: 10px;
-  border: 1px solid gray;
+  border: 1px solid var(--gray);
   justify-content: space-between;
-`;
-
-const LinkWrapper = styled.div`
-  :hover :first-child {
-    color: #ffa500;
-  }
-  padding: 0.5rem;
-  /* border: 1px solid red; */
 `;
 
 export default Navbar;

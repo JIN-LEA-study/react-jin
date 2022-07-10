@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Template = ({ children }) => {
-  return (
-    <>
-      <Main>{children}</Main>
-    </>
-  );
+  return <Main>{children}</Main>;
 };
 
 const Main = styled.main`

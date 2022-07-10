@@ -1,19 +1,20 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import GlobalStyle from "./common/styles/GlobalStyle";
 
 // recoil
 import { RecoilRoot } from "recoil";
 
 // components
-import Navbar from "./components/Navbar";
-import Template from "./components/Template";
-import Cards from "./pages/Cards";
-import New from "./pages/New";
-import Practice from "./pages/Practice";
+import { Navbar, Template } from "./common/components";
+
+// pages
+import { Cards, New, Practice } from "./pages";
 
 function App() {
   return (
     <RecoilRoot>
+      <GlobalStyle />
       <Navbar />
       <Template>
         <Routes>

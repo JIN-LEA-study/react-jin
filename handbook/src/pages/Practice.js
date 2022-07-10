@@ -1,10 +1,15 @@
 import React from "react";
 
+// components
+import { Grid, Text } from "../common/components/elements";
+
 const Practice = () => {
   return (
-    <div>
-      <h1>PRACTICE</h1>
-    </div>
+    <Grid width='auto'>
+      <Text margin='1rem 0 1rem 0' type='h1'>
+        PRACTICE
+      </Text>
+    </Grid>
   );
 };
 
