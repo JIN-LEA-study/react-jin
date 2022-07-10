@@ -6,7 +6,7 @@ import { useSetRecoilState } from "recoil";
 import { items } from "../common/recoil/atoms";
 
 // components
-import { Grid, Text } from "../common/components/elements";
+import { Button, Grid, Text } from "../common/components/elements";
 
 let id = 0;
 const getId = () => {
@@ -18,7 +18,16 @@ const New = () => {
   const [textareaValue, setTextareaValue] = useState("");
   const setItems = useSetRecoilState(items);
 
-  const addItem = () => {
+  const addItem = e => {
+    e.preventDefault();
+    if (!inputValue) {
+      window.alert("Enter your Question.");
+      return;
+    }
+    if (!textareaValue) {
+      window.alert("Enter your Answer.");
+      return;
+    }
     setItems(oldList => [
       ...oldList,
       {
@@ -40,16 +49,12 @@ const New = () => {
   };
 
   return (
-    <Grid
-      width='auto'
-      display='flex'
-      justifyContent='center'
-      flexDirection='column'
-    >
+    <Grid isFlex flexDirection='column'>
       <Text margin='1rem 0 1rem 0' type='h1'>
         NEW
       </Text>
-      <Grid marginBottom='1rem'>
+
+      <Grid width='70%' marginBottom='1rem'>
         <Label>Question</Label>
         <Grid marginTop='0.5rem'>
           <QuestionInput
@@ -60,7 +65,7 @@ const New = () => {
         </Grid>
       </Grid>
 
-      <Grid marginBottom='1rem'>
+      <Grid width='70%' marginBottom='1rem'>
         <Label>Answer</Label>
         <Grid marginTop='0.5rem'>
           <AnswerInput
@@ -70,7 +75,9 @@ const New = () => {
           />
         </Grid>
       </Grid>
-      <button onClick={addItem}>Add</button>
+      <Button width='70%' onClick={addItem} cursor>
+        Add
+      </Button>
     </Grid>
   );
 };
@@ -81,23 +88,26 @@ const Label = styled.label`
 `;
 
 const QuestionInput = styled.input`
-  width: 20rem;
-  height: 2rem;
+  width: 100%;
+  height: 3rem;
   padding: 1rem;
   border: 1px solid var(--gray);
   border-radius: 10px;
+  font-size: 1rem;
   :focus {
     outline: 1.5px solid var(--gray);
   }
 `;
 
 const AnswerInput = styled.textarea`
-  width: 20rem;
-  height: 8rem;
+  width: 100%;
+  height: 10rem;
   padding: 1rem;
   border: 1px solid var(--gray);
   border-radius: 10px;
   resize: none;
+  font-size: 1rem;
+  font-family: sans-serif;
   :focus {
     outline: 1.5px solid var(--gray);
   }
