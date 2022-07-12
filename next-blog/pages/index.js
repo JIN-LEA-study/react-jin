@@ -18,7 +18,7 @@ export default function Home({ posts }) {
 
 export const getServerSideProps = async () => {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_start=0&_end=10` // 데이터를 10개로 줄여서 가져왔다.
+    `http://localhost:8080/api/posts` // 데이터를 10개로 줄여서 가져왔다.
   );
   const posts = await res.json();
 
