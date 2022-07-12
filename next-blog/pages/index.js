@@ -16,6 +16,12 @@ export default function Home({ posts }) {
 // 이 페이지에 들어올 때 마다 서버에 요청해서 데이터를 받아온다,
 // 서버에서 만든 html파일으 그때그때 보여주는 방식이다.
 
+// 서버에서 데이터가 바뀌었을때
+// 바로바로 즉각적으로 빈번한 데이터의 변화가 일어나는 페이지를 만들때는
+// getServerSideProps를 사용하는 것이 바람직하다.
+
+// 하지만 NEXT.JS에서는 Static Side Generation을 추천한다.
+
 export const getServerSideProps = async () => {
   const res = await fetch(
     `http://localhost:8080/api/posts` // 데이터를 10개로 줄여서 가져왔다.
