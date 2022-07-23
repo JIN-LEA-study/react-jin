@@ -4,12 +4,16 @@ import AvailableChatsList from "./AvailableChatsList";
 import JoinedChatsList from "./JoinedChatsList";
 import { ViewTitle } from "../../common/components";
 
-import { fetchChats } from "../../common/utils/chats";
+import { useDispatch } from "react-redux";
+
+import { fetchChats } from "../../common/redux/actions/chats";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    fetchChats();
-  }, []);
+    dispatch(fetchChats());
+  }, [dispatch]);
 
   return (
     <div className='row no-gutters fh'>

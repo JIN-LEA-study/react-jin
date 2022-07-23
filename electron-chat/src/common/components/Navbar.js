@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const message = useSelector(state => state.message);
-
   return (
     <div className='chat-navbar'>
       <nav className='chat-navbar-inner'>
@@ -22,7 +20,6 @@ const Navbar = () => {
           <Link to='/settings' className='btn btn-outline-success ml-2'>
             Settings
           </Link>
-          {message}
         </div>
         <div className='chat-navbar-inner-right'>
           <span className='logged-in-user'>Hi User</span>
