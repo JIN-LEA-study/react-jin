@@ -8,7 +8,7 @@ import { fetchChats } from "../../common/utils/chats";
 
 const HomePage = () => {
   useEffect(() => {
-    fetchChats().then(chat => {});
+    fetchChats();
   }, []);
 
   return (
