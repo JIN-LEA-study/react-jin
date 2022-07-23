@@ -1,5 +1,7 @@
 // Main Process
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow } = require("electron");
+const path = require("path");
+const isDev = !app.isPackaged;
 
 function createWindow() {
   // Browser Window <- Renderer Process
@@ -14,28 +16,33 @@ function createWindow() {
       worldSafeExecuteJavaScript: true,
       // is a feature that ensures that both, your preload scripts and Electron
       // internal logic run in sparate context
-      contextIsolation: true
-    }
-  })
+      contextIsolation: true,
+    },
+  });
 
-  win.loadFile('./index.html')
-  win.webContents.openDevTools();
+  win.loadFile("./index.html");
+  isDev && win.webContents.openDevTools();
+}
+
+if (isDev) {
+  require("electron-reload")(__dirname, {
+    electron: path.join(__dirname, "node_modules", ".bin", "electron"),
+  });
 }
 
 app.whenReady().then(createWindow);
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
     app.quit();
   }
-})
+});
 
-app.on('activate', () => {
+app.on("activate", () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
-})
-
+});
 
 // Chromium -> web eingine for rendering the UI, full Chrome-like web browser
 // V8 -> engine that provides capabilities to execute, run, JS code in the browser
