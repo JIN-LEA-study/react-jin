@@ -13,10 +13,10 @@ function createWindow() {
       nodeIntegration: false,
       // will sanitize JS code
       // TODO: explain when React application is initialize
-      // worldSafeExecuteJavaScript: true,
+      worldSafeExecuteJavaScript: true,
       // is a feature that ensures that both, your preload scripts and Electron
       // internal logic run in sparate context
-      contextIsolation: false,
+      contextIsolation: true,
       preload: path.join(__dirname, "preload.js"),
     },
   });
