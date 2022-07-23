@@ -11,8 +11,8 @@ const HomePage = () => {
         <JoinedChatsList />
       </div>
       <div className='col-9 fh'>
-        <ViewTitle />
         <div className='container-fluid'>
+          <ViewTitle text='Choose your channel' />
           <AvailableChatsList />
         </div>
       </div>

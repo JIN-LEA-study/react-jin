@@ -6,16 +6,15 @@ import ChatMessagesList from "./ChatMessagesList";
 import { ViewTitle } from "../../common/components";
 
 const ChatPage = () => {
-  const params = useParams();
+  const { slug } = useParams();
 
   return (
     <div className='row no-gutters fh'>
-      {params.id}
       <div className='col-3 fh'>
         <ChatUsersList />
       </div>
       <div className='col-9 fh'>
-        <ViewTitle />
+        <ViewTitle text={`Joined channel: ${slug}`} />
         <ChatMessagesList />
       </div>
     </div>
