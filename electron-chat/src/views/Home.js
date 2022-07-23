@@ -6,9 +6,8 @@ import ViewTitle from "../components/shared/ViewTitle";
 
 const Home = () => {
   return (
-    <div className='content-wrapper'>
-      <Navbar />
-
+    <>
+      {/* <Navbar /> */}
       <div className='row no-gutters fh'>
         <div className='col-3 fh'>
           <JoinedChats />
@@ -20,7 +19,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
