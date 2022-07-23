@@ -2,7 +2,7 @@ import React from "react";
 
 import AvailableChatsList from "./AvailableChatsList";
 import JoinedChatsList from "./JoinedChatsList";
-import ViewTitle from "../../common/components/ViewTitle";
+import { ViewTitle } from "../../common/components";
 
 const HomePage = () => {
   return (
