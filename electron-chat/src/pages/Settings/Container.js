@@ -1,6 +1,6 @@
 import React from "react";
 
-const Settings = () => {
+const SettingsPage = () => {
   return (
     <div className='centered-view'>
       <div className='centered-container'>
@@ -43,4 +43,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default SettingsPage;

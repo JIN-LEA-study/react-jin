@@ -1,11 +1,12 @@
 import React from "react";
 
-import Home from "./views/Home";
-import Login from "./views/Login";
-import Register from "./views/Register";
-import Settings from "./views/Settings";
+import HomePage from "./pages/Home/Container";
+import ChatPage from "./pages/Chat/Container";
+import Login from "./pages/Welcome/Login";
+import Register from "./pages/Welcome/Register";
+import SettingsPage from "./pages/Settings/Container";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./common/components/Navbar";
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -15,10 +16,11 @@ function App() {
       <Navbar />
       <div className='content-wrapper'>
         <Routes>
-          <Route path='/settings' element={<Settings />} />
+          <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/' element={<Home />} />
+          <Route path='/settings' element={<SettingsPage />} />
+          <Route path='/chat' element={<ChatPage />} />
         </Routes>
       </div>
     </Router>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const AvailableChats = () => {
+const AvailableChatsList = () => {
   return (
     <div className='row mt-3'>
       {false && (
@@ -56,4 +56,4 @@ const AvailableChats = () => {
   );
 };
 
-export default AvailableChats;
+export default AvailableChatsList;
