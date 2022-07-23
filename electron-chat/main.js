@@ -1,5 +1,5 @@
 // Main Process
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain, Notification } = require("electron");
 const path = require("path");
 const isDev = !app.isPackaged;
 
@@ -10,13 +10,14 @@ function createWindow() {
     height: 800,
     backgroundColor: "white",
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
+      contextIsolation: false,
       // will sanitize JS code
       // TODO: explain when React application is initialize
-      worldSafeExecuteJavaScript: true,
+      // worldSafeExecuteJavaScript: true,
       // is a feature that ensures that both, your preload scripts and Electron
       // internal logic run in sparate context
-      contextIsolation: true,
+      // contextIsolation: true,
     },
   });
 
@@ -31,6 +32,11 @@ if (isDev) {
 }
 
 app.whenReady().then(createWindow);
+
+ipcMain.on("notify", (_, message) => {
+  // 굳이 e가 필요없어서 _(underscore)로 바꿨다.
+  new Notification({ title: "Notification", body: message }).show();
+});
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
