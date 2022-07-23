@@ -1,5 +1,5 @@
 // Main Process
-const { app, BrowserWindow, Notification } = require("electron");
+const { app, BrowserWindow } = require('electron');
 
 function createWindow() {
   // Browser Window <- Renderer Process
@@ -8,30 +8,38 @@ function createWindow() {
     height: 800,
     backgroundColor: "white",
     webPreferences: {
-      nodeIntegration: true,
-    },
-  });
+      nodeIntegration: false,
+      // will sanitize JS code
+      // TODO: explain when React application is initialize
+      worldSafeExecuteJavaScript: true,
+      // is a feature that ensures that both, your preload scripts and Electron
+      // internal logic run in sparate context
+      contextIsolation: true
+    }
+  })
 
-  win.loadFile("index.html");
+  win.loadFile('./index.html')
   win.webContents.openDevTools();
 }
 
-app.whenReady().then(() => {
-  createWindow();
-  const notification = new Notification({
-    title: "Hello World",
-    body: "My test message",
-  });
-});
+app.whenReady().then(createWindow);
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
     app.quit();
   }
-});
+})
 
-app.on("activate", () => {
+app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
-});
+})
+
+
+// Chromium -> web eingine for rendering the UI, full Chrome-like web browser
+// V8 -> engine that provides capabilities to execute, run, JS code in the browser
+// Node JS(V8) -> we are able to run JS code + provides more features
+
+// Webpack -> is a module builder, main purpose is to bundle JS files for usage in the browsert
+// Babel -> js a JS compiler
