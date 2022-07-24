@@ -3,12 +3,17 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './index.scss'
+import { Provider } from "react-redux";
+import configureStore from "./common/redux/store";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.scss";
+
+const store = configureStore();
 
 const root = ReactDOM.createRoot(document.getElementById("chatApp"));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );

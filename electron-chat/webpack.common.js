@@ -50,4 +50,5 @@ module.exports = {
     filename: "app.js",
     path: path.resolve(__dirname, "build"),
   },
+  target: "web",
 };
