@@ -1,10 +1,9 @@
 import React from "react";
 
+import WelcomePage from "./pages/Welcome/Container";
 import HomePage from "./pages/Home/Container";
 import ChatPage from "./pages/Chat/Container";
 import SettingsPage from "./pages/Settings/Container";
-import Login from "./pages/Welcome/Login";
-import Register from "./pages/Welcome/Register";
 
 import { Navbar } from "./common/components";
 
@@ -16,11 +15,10 @@ function App() {
       <Navbar />
       <div className='content-wrapper'>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<WelcomePage />} />
+          <Route path='/home' element={<HomePage />} />
           <Route path='/chat/:id' element={<ChatPage />} />
           <Route path='/settings' element={<SettingsPage />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
         </Routes>
       </div>
     </Router>

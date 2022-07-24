@@ -1,6 +1,6 @@
 import React from "react";
 
-const Register = () => {
+const RegisterForm = () => {
   return (
     <div className='centered-view'>
       <div className='centered-container'>
@@ -57,15 +57,15 @@ const Register = () => {
             </button>
           </div>
         </form>
-        <small className='form-text text-muted mt-2'>
+        {/* <small className='form-text text-muted mt-2'>
           Not registered yet?
           <span onClick={() => {}} className='btn-link ml-2'>
             Register
           </span>
-        </small>
+        </small> */}
       </div>
     </div>
   );
 };
 
-export default Register;
+export default RegisterForm;

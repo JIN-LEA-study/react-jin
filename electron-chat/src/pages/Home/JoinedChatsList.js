@@ -1,7 +1,6 @@
 import React from "react";
 import ChatSearch from "./ChatSearch";
 import { useNavigate } from "react-router-dom";
-import { chatsApi } from "../../common/utils/chats";
 
 const JoinedChatsList = ({ chats }) => {
   const navigate = useNavigate();

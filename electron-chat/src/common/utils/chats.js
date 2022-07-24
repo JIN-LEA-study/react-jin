@@ -8,5 +8,3 @@ export const fetchChats = async () => {
   // console.log("Running doc view", chatList);
   return chatList;
 };
-
-
